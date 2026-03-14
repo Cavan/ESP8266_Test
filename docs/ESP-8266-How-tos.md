@@ -22,6 +22,7 @@
 12. [Wi-Fi — Simple Web Server](#11-wi-fi--simple-web-server)
 13. [Relay Module Control](#12-relay-module-control)
 14. [Buzzer — Tone Generation](#13-buzzer--tone-generation)
+15. [Glossary](#glossary)
 
 ---
 
@@ -892,6 +893,70 @@ graph TB
 | Wi-Fi won't connect | Double-check SSID/password; ensure 2.4 GHz network (ESP8266 does not support 5 GHz) |
 | Brownouts / random resets | Use an external power supply; USB may not supply enough current for motors/relays |
 | I²C device not found | Run an I²C scanner sketch to verify address; check SDA/SCL wiring |
+
+---
+
+## Glossary
+
+| Term | Definition |
+| ---- | ---------- |
+| **ADC (Analog-to-Digital Converter)** | Hardware that converts a continuous analog voltage into a discrete digital number. The ESP8266 has a single 10-bit ADC on pin A0 (0–1023). |
+| **Anode** | The positive (+) terminal of a polarised component such as an LED or diode. On a standard LED it is the longer leg. |
+| **Baud Rate** | The number of signal changes (symbols) per second on a serial line. Common values: 9600, 115200. Sets the speed for `Serial.begin()`. |
+| **Breadboard** | A solderless prototyping board with internally connected rows of holes used to build temporary circuits. |
+| **Buzzer** | An electromechanical or piezoelectric component that produces an audible tone when driven by an electrical signal. |
+| **Cathode** | The negative (−) terminal of a polarised component such as an LED or diode. On a standard LED it is the shorter leg. |
+| **COM (Common)** | The shared terminal on a relay that connects to either the NO or NC contact depending on the relay state. |
+| **CPU Frequency** | The clock speed of the processor. The ESP8266 runs at 80 MHz by default and can be set to 160 MHz. |
+| **Deep Sleep** | A low-power mode where the ESP8266 shuts down most circuitry and wakes via a signal on GPIO16 (D0) or a timer. |
+| **DHT11 / DHT22** | Digital temperature and humidity sensors. DHT11 is lower cost/accuracy; DHT22 offers wider range and better precision. |
+| **Digital I/O** | Input/output pins that operate in two states: HIGH (3.3 V on ESP8266) or LOW (0 V). |
+| **Duty Cycle** | The percentage of one PWM period during which the signal is HIGH. 0 % = always off, 100 % = always on. |
+| **ESP8266** | A low-cost Wi-Fi microcontroller SoC made by Espressif Systems, featuring a 32-bit Tensilica processor, Wi-Fi stack, and GPIO pins. |
+| **Firmware** | The compiled program that is flashed onto a microcontroller and runs when it powers on. |
+| **Flash Memory** | Non-volatile storage on the ESP8266 used to hold the firmware and file system (typically 4 MB on ESP-12E). |
+| **Framework** | A software layer (e.g. Arduino, ESP-IDF) that provides libraries, APIs, and build tools for developing firmware. |
+| **GND (Ground)** | The zero-volt reference point in a circuit. All components and power sources share a common ground. |
+| **GPIO (General Purpose Input/Output)** | Microcontroller pins that can be configured in software as either digital inputs or outputs. |
+| **HC-SR04** | An ultrasonic distance sensor that measures distance by timing the echo of a 40 kHz sound pulse. Range ≈ 2–400 cm. |
+| **I²C (Inter-Integrated Circuit)** | A two-wire serial protocol (SDA + SCL) for communicating between a master and one or more slave devices at short distances. |
+| **INPUT_PULLUP** | A pin mode that enables the microcontroller's internal pull-up resistor, keeping the pin HIGH when nothing is connected and reading LOW when shorted to GND. |
+| **LED (Light Emitting Diode)** | A semiconductor component that emits light when forward-biased. Requires a current-limiting resistor in most circuits. |
+| **Library (lib)** | A reusable package of code (header + source files) that provides functions for a specific peripheral or protocol (e.g. `DHT.h`, `Servo.h`). |
+| **MISO (Master In Slave Out)** | The SPI data line that carries data from the slave device to the master. |
+| **MOSI (Master Out Slave In)** | The SPI data line that carries data from the master to the slave device. |
+| **NC (Normally Closed)** | A relay contact that is connected to COM when the relay is de-energised and disconnected when energised. |
+| **NO (Normally Open)** | A relay contact that is disconnected from COM when the relay is de-energised and connected when energised. |
+| **NodeMCU** | An open-source development board built around the ESP-12E module, providing USB-to-serial, a voltage regulator, and convenient pin headers. |
+| **OHM (Ω)** | The SI unit of electrical resistance. Common resistor values in hobby electronics: 220 Ω, 1 kΩ, 4.7 kΩ, 10 kΩ. |
+| **OLED (Organic Light Emitting Diode)** | A display technology where each pixel emits its own light. The SSD1306 is a common 128×64 OLED driver IC. |
+| **OTA (Over-The-Air)** | Updating firmware wirelessly via Wi-Fi instead of a USB cable. |
+| **PlatformIO** | An open-source ecosystem for embedded development that integrates with VS Code, providing build, upload, and library management. |
+| **Potentiometer** | A three-terminal variable resistor. Turning the shaft moves a wiper along a resistive element, varying the output voltage. |
+| **Pull-down Resistor** | A resistor connected between a pin and GND that holds the pin LOW when no other signal is applied. |
+| **Pull-up Resistor** | A resistor connected between a pin and VCC that holds the pin HIGH when no other signal is applied. |
+| **PWM (Pulse Width Modulation)** | A technique that simulates analog output by rapidly switching a digital pin on and off at a set duty cycle and frequency. |
+| **Relay** | An electrically operated switch that uses an electromagnet to mechanically open or close a separate circuit, often for high-power loads. |
+| **Resistor** | A passive component that limits current flow. Value measured in ohms (Ω). |
+| **RSSI (Received Signal Strength Indicator)** | A measurement (in dBm) of the Wi-Fi signal power received by the ESP8266. Lower (more negative) values indicate weaker signals. |
+| **RX / TX** | Receive / Transmit — the serial data lines. TX of one device connects to RX of the other and vice versa. |
+| **SCLK (Serial Clock)** | The clock line in SPI communication, driven by the master to synchronise data transfer. |
+| **SDA (Serial Data)** | The bidirectional data line in I²C communication. |
+| **SCL (Serial Clock)** | The clock line in I²C communication, driven by the master. |
+| **Serial Monitor** | A terminal window (in PlatformIO or Arduino IDE) that displays text sent over the USB-serial connection from the microcontroller. |
+| **Servo Motor** | A motor with built-in feedback control that can be positioned to a specific angle (typically 0–180°) via a PWM signal. |
+| **SoC (System on a Chip)** | A single integrated circuit that contains a processor, memory, peripherals, and (on the ESP8266) a Wi-Fi radio. |
+| **SPI (Serial Peripheral Interface)** | A four-wire serial protocol (MOSI, MISO, SCLK, CS) for high-speed communication between a master and slave devices. |
+| **SSD1306** | A common OLED display driver IC supporting 128×64 or 128×32 pixel resolutions over I²C or SPI. |
+| **SSID (Service Set Identifier)** | The human-readable name of a Wi-Fi network. |
+| **VCC** | The positive supply voltage pin on a component (e.g. 3.3 V or 5 V). |
+| **VIN** | The input voltage pin on the NodeMCU, connected directly to the USB 5 V rail (bypasses the 3.3 V regulator). |
+| **Voltage Divider** | A simple circuit of two resistors in series that produces an output voltage that is a fraction of the input voltage. Used to level-shift 5 V signals to 3.3 V. |
+| **Volatile Memory (RAM)** | Memory that loses its contents when power is removed. The ESP8266 has ~80 KB of data RAM. |
+| **Watchdog Timer (WDT)** | A hardware timer that resets the microcontroller if the firmware fails to periodically "feed" it, preventing lockups. Call `yield()` or `delay()` in long loops to avoid WDT resets on the ESP8266. |
+| **Wi-Fi Station (STA)** | A mode where the ESP8266 connects to an existing Wi-Fi access point as a client. |
+| **Wi-Fi Access Point (AP)** | A mode where the ESP8266 creates its own Wi-Fi network that other devices can connect to. |
+| **Wire (library)** | The Arduino library that implements I²C master/slave communication. Included via `#include <Wire.h>`. |
 
 ---
 
